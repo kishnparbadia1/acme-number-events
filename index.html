@@ -1,91 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-    h1 { 
-        text-align: center;
-        font-family: Verdana;
-
-    }
-    button {
-        background-color: green;
-        font-size: 30px;
-        color: white;
-        height: 50px;
-        width: 50px;
-        
-    }
-
-    div{
-        text-align: center;
-
-    }
-
-    ul {
-        list-style-type: none;
-        text-align: center;
-    }
-
-</style>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acme Number Events</title>
 </head>
 <body>
-    <h1>Acme Numbers and Events</h1>
-    <div>
-    <button>+</button>
-    </div>
-    <div id='average'>
-    </div>
-    <ul></ul>
-    <script>
-        
-        const button = document.querySelector('button')
-        //const alldiv = document.querySelectorAll('div')
-        const average = document.getElementById('average')
-        const ul = document.querySelector('ul')
-
-
-        let randomNumArray = [];
-        button.addEventListener('click', (ev) => {
-            let randomNum = Math.floor(Math.random() * 100) + 1
-            randomNumArray.push(randomNum)
-
-            const li = document.createElement('li')
-            li.innerHTML = randomNum
-
-            li.addEventListener('click', (ev) => {
-                
-                    ev.target.parentNode.removeChild(ev.target)
-                    const numToRemove = ev.target.innerHTML
-                    randomNumArray.splice(randomNumArray.indexOf(numToRemove + 1), 1)
-                    if (randomNumArray.length === 0){
-                        average.innerHTML = 'The average is 0'
-                    }
-                    else{
-                        let avg = randomNumArray.reduce((accum,num)=> accum + num) / randomNumArray.length  
-                        average.innerHTML = `The average of all the numbers is ${avg.toFixed(2)}`
-                    } 
-
-            })
-
-            ul.appendChild(li)
-
-            let avg = randomNumArray.reduce((accum,num)=> accum + num) / randomNumArray.length
-            //div[1].innerHTML = `The average of all the numbers is ${avg}`
-            average.innerHTML = `The average of all the numbers is ${avg.toFixed(2)}`
-        
-        })
-
-      
-    </script>
-
+    
 </body>
 </html>
-
-
-
-
